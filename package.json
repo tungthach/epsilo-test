@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "parcel index.html index-ts.html vendor.html introduction.html",
+    "build": "parcel build introduction.html --no-source-maps --out-dir build"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-markdown": "^0.4.2",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "d3": "^5.16.0",
+    "d3-shape": "^2.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

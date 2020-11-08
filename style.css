@@ -1,0 +1,16 @@
+@import './vendor.css';
+
+.app-wrapper{
+  padding: 20px;
+  display: flex;
+}
+
+.introduction {
+  flex-basis: 40%;
+  padding-right: 10px;
+  border-right: 1px solid #999;
+}
+.app {
+  flex-basis: 60%;
+}
+
