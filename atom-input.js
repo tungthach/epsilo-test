@@ -17,6 +17,15 @@ export default function AtomInput({atom, index, atoms, setAtoms }) {
     }
   }, [localConfig]);
 
+  const removeAtom = () => {
+    setLocalConfig((state) => ({ ...state, isDelete: true }));
+  };
+
+  // Do not render delete item 
+  if (localConfig.isDelete) {
+    return null;
+  }
+
   return (
     <form className="pure-form">
       <fieldset>
@@ -54,6 +63,7 @@ export default function AtomInput({atom, index, atoms, setAtoms }) {
             type="color"
           />
         </label>
+        <button onClick={removeAtom}>Remove</button>
       </fieldset>
     </form>
   );

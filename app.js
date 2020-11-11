@@ -13,7 +13,10 @@ export default function App() {
 
       <div>
         {atoms.map((atom) => {
-          const { eSize, velocity, color } = atom.config;
+          const { eSize, velocity, color, isDelete } = atom.config;
+          // Do not render delete atom
+          if (isDelete) return null;
+
           return (
             <div key={atom.name}>
               <div>{atom.name}</div>
