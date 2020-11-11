@@ -9,8 +9,9 @@ export default function AtomInput({atom, index, atoms, setAtoms }) {
   const firstRender = useRef(true);
 
   useEffect(() => {
-    if (!firstRender) {
-      setAtoms([...atoms.splice(index, 1, { ...atom, config: localConfig })]);
+    if (!firstRender.current) {
+      atoms.splice(index, 1, { ...atom, config: localConfig })
+      setAtoms([...atoms]);
     } else {
       firstRender.current = false;
     }

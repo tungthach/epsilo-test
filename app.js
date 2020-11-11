@@ -12,14 +12,17 @@ export default function App() {
       </div>
 
       <div>
-        {atoms.map((atom) => (
-          <div key={atom.name}>
-            <div>{atom.name}</div>
-            <div style={{ width: 400, height: 200 }}>
-              <BeAtom />
+        {atoms.map((atom) => {
+          const { eSize, velocity, color } = atom.config;
+          return (
+            <div key={atom.name}>
+              <div>{atom.name}</div>
+              <div style={{ width: 400, height: 200 }}>
+                <BeAtom eSize={eSize} velocity={velocity} color={color} />
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   );
