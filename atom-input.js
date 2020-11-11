@@ -1,27 +1,24 @@
 import React, { useEffect, useState, useRef } from "react";
 
-export default function AtomInput({atom, index, atoms, setAtoms }) {
-  const [localConfig, setLocalConfig] = useState({
-    eSize: 3,
-    velocity: 30,
-    color: "#f47b20",
-  });
+export default function AtomInput({ atom, index, atoms, setAtoms }) {
+  const { eSize, velocity, color } = atom.config;
+  const [localConfig, setLocalConfig] = useState({ eSize, velocity, color });
   const firstRender = useRef(true);
 
   useEffect(() => {
     if (!firstRender.current) {
-      atoms.splice(index, 1, { ...atom, config: localConfig })
+      atoms.splice(index, 1, { ...atom, config: localConfig });
       setAtoms([...atoms]);
     } else {
       firstRender.current = false;
     }
   }, [localConfig]);
 
-  const removeAtom = () => {
-    setLocalConfig((state) => ({ ...state, isDelete: true }));
+  const updateConfig = (key, value) => {
+    setLocalConfig((state) => ({ ...state, [key]: value }));
   };
 
-  // Do not render delete item 
+  // Do not render deleted item
   if (localConfig.isDelete) {
     return null;
   }
@@ -34,10 +31,7 @@ export default function AtomInput({atom, index, atoms, setAtoms }) {
           Electron size
           <input
             defaultValue={3}
-            onChange={(event) => {
-              let val = event.target.value;
-              setLocalConfig((state) => ({ ...state, eSize: val }));
-            }}
+            onChange={(event) => updateConfig("eSize", event.target.value)}
             type="number"
           />
         </label>{" "}
@@ -45,10 +39,7 @@ export default function AtomInput({atom, index, atoms, setAtoms }) {
           Electron velocity
           <input
             defaultValue={30}
-            onChange={(event) => {
-              let val = event.target.value;
-              setLocalConfig((state) => ({ ...state, velocity: val }));
-            }}
+            onChange={(event) => updateConfig("velocity", event.target.value)}
             type="number"
           />
         </label>{" "}
@@ -56,16 +47,12 @@ export default function AtomInput({atom, index, atoms, setAtoms }) {
           Electron color
           <input
             defaultValue={"#f47b20"}
-            onChange={(event) => {
-              let val = event.target.value;
-              setLocalConfig((state) => ({ ...state, color: val }));
-            }}
+            onChange={(event) => updateConfig("color", event.target.value)}
             type="color"
           />
         </label>
-        <button onClick={removeAtom}>Remove</button>
+        <button onClick={() => updateConfig("isDelete", true)}>Remove</button>
       </fieldset>
     </form>
   );
-
 }
