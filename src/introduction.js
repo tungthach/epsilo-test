@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./app";
-import README from "./README.md";
-import { BeAtom } from "./atom";
+import App from "./components/app/app";
+import README from "../README.md";
+import { BeAtom } from "./components/atom/atom";
 
 function Introduction() {
   return (

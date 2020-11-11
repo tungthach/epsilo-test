@@ -1,5 +1,5 @@
 import React from "react";
-import AtomInput, { Atom, setAtomsFn } from "./atom-input";
+import AtomInput, { Atom, setAtomsFn } from "../atom-input/atom-input";
 
 export type MultiInputProps = {
   atoms: Atom[];

@@ -1,5 +1,5 @@
 import React from "react";
-import AtomInput from "./atom-input";
+import AtomInput from "../atom-input/atom-input";
 
 export default function AtomMultiInput({ atoms, setAtoms }) {
   return (

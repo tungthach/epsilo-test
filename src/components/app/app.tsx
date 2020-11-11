@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AtomMultiInput from "./atom-multi-input";
-import { BeAtom } from "./atom";
-import { Atom } from "./atom-input";
+import AtomMultiInput from "../atom-multi-input/atom-multi-input";
+import { BeAtom } from "../atom/atom";
+import { Atom } from "../atom-input/atom-input";
 
 export default function App() {
   const [atoms, setAtoms] = useState<Atom[]>([]);
